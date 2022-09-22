@@ -22,7 +22,7 @@ C2 = 0
 C3 = 0
 C4 = 0
 
-V6 = '_____	_____'
+V6 = '    _____	 _____'
 
 V5 ='''       
               |
@@ -91,7 +91,7 @@ while C4 == 0 :     #test pour recommencer
     
     Lf = []
     rst = 0     #variable pour recommencer
-    P = 0   #variable pour la lettre proposée
+    P = 'zz'   #variable pour la lettre proposée
     Vic = 0     #variable utilisée pour tester si toutes les lettres ont été trouvées
     X = 0   #variable pour compter le nombre de tentatives
     V = 7
@@ -148,7 +148,12 @@ while C4 == 0 :     #test pour recommencer
             if V < 7:
                 print(VL[V])        #écrit le dessin correspondant au nombre de vies restantes
             if V > 0:
-                P = str(input('Proposez une lettre :'))
+                tst = str(input('Proposez une lettre :'))
+                if len(tst) == 1:       #teste si plus d'une lettre est entrée
+                    P = tst
+                else:
+                    P = '0'
+                assert len(P) == 1
             else:
                 C3 = 1
             print("")
@@ -175,6 +180,7 @@ while C4 == 0 :     #test pour recommencer
                 C4 = 0
             if rst == 'n':
                 C4 = 1
+        assert rst == 'y' or rst == 'n'
     else:
         print("vous avez gagné en",X,"coup")
         print("")
@@ -185,6 +191,8 @@ while C4 == 0 :     #test pour recommencer
                 C4 = 0
             if rst == 'n':
                 C4 = 1
+        assert rst == 'y' or rst == 'n'
+
  
 
 
